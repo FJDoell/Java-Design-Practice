@@ -2,6 +2,7 @@ package com.menu.core;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Set;
 
 import lombok.Data;
 
@@ -21,30 +22,21 @@ public class Menu {
 	private ArrayList<String> options = new ArrayList<String>();
 	private ArrayList<String> opDescs = new ArrayList<String>();
 	
-	public Menu(InputType inputType, String desiredInput) {
-		this.inputType = inputType;
-		switch(inputType) {
-		case INPUT_INT:
-			this.requestInputInt(desiredInput);
-			break;
-		case INPUT_INT_POSITIVE:
-			this.requestInputPositiveInt(desiredInput);
-			break;
-		case INPUT_STRING:
-			this.requestInputString(desiredInput);
-			break;
-		default:
-			this.invalidInputType();
-			break;
-		}
+	private String returnedStringInput;
+	private String desiredInput;
+	private int returnedIntInput;
+	
+	public Menu(String desiredInput) {
+		super();
+		this.desiredInput = desiredInput;
 	}
 	
-	public Menu(String menuName, String menuDescription, ArrayList<String> options, ArrayList<String> opDescs) {
+	public Menu(String menuName, String menuDescription, Set<String> options, Set<String> opDescs) {
 		super();
 		this.menuName = menuName;
 		this.menuDescription = menuDescription;
-		this.options = options;
-		this.opDescs = opDescs;
+		this.options = new ArrayList<String>(options);
+		this.opDescs = new ArrayList<String>(opDescs);
 		printMenuChoices();
 	}
 	
