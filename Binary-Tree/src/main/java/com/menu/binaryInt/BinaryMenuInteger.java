@@ -1,6 +1,6 @@
 package com.menu.binaryInt;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import com.binaryTree.Integer.NodeDao;
@@ -54,16 +54,16 @@ public class BinaryMenuInteger {
 	 * Main menu
 	 */
 	public void mainMenu() {
-		Set<String> options = new HashSet<String>();
-		Set<String> opDescs = new HashSet<String>();
+		Set<String> options = new LinkedHashSet<String>();
+		Set<String> opDescs = new LinkedHashSet<String>();
 		options.add("FIND");
-		opDescs.add("Find a value in the tree.");
+		opDescs.add("Find a value in the tree");
 		
 		options.add("ADD");
-		opDescs.add("Add a value to the tree.");
+		opDescs.add("Add a value to the tree");
 		
 		options.add("REMOVE");
-		opDescs.add("remove a value from the tree.");
+		opDescs.add("remove a value from the tree");
 		
 		this.selected = menuFact.chooseOption("INT TREE MAIN", "How do you wish to alter this tree?", options, opDescs);
 		routeMenu(BinaryIntMenu.valueOf(selected));
@@ -89,7 +89,7 @@ public class BinaryMenuInteger {
 	 * Remove a node menu
 	 */
 	public void removeNode() {
-		System.out.println("Node removed feedback: " + dao.addNode(menuFact.inputAnyInt("Enter the value to remove")));
+		System.out.println("Node removed feedback: " + dao.removeNode(menuFact.inputAnyInt("Enter the value to remove")));
 		routeMenu(BinaryIntMenu.MAIN);
 	}
 	

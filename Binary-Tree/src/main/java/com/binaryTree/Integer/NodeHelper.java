@@ -42,19 +42,23 @@ public class NodeHelper {
 	 * @return
 	 */
 	public IntegerNode addNode(IntegerNode addingTo, IntegerNode added) {
-		if(addingTo.getValue() <= added.getValue()) {
+		if(added.getValue() <= addingTo.getValue()) {
 			if(addingTo.getLeftValue() == null) {
+				System.out.println("Node left child is null; added!");
 				addingTo.setLeftValue(added);
 				return null;
 			} else {
+				System.out.println("Node left child has a value, continuing...");
 				return addingTo.getLeftValue();
 			}
 		}
 		// It's greater at this point
 		if(addingTo.getRightValue() == null) {
+			System.out.println("Node right child is null; added!");
 			addingTo.setRightValue(added);
 			return null;
 		} else {
+			System.out.println("Node right child has a value, continuing...");
 			return addingTo.getRightValue();
 		}
 	}

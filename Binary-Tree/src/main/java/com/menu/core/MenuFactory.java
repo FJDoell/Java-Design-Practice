@@ -1,6 +1,6 @@
 package com.menu.core;
 
-import java.util.Set;
+import java.util.LinkedHashSet;
 
 /**
  * In charge of making menus, running the appropriate methods, then returning the values obtained.
@@ -24,7 +24,7 @@ public class MenuFactory {
 		return myMenu.requestInputInt(inputMessage);
 	}
 	
-	public String chooseOption(String inputMessage, String menuDescription, Set<String> options, Set<String> opDescs) {
+	public String chooseOption(String inputMessage, String menuDescription, LinkedHashSet<String> options, LinkedHashSet<String> opDescs) {
 		Menu myMenu = new Menu(inputMessage, menuDescription, options, opDescs);
 		return myMenu.printMenuChoices();
 	}

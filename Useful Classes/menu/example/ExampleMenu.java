@@ -1,7 +1,6 @@
 package com.menu.example;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedHashSet;
 
 import com.menu.core.MenuFactory;
 
@@ -36,8 +35,8 @@ public class ExampleMenu {
 	 * Main menu
 	 */
 	public void mainMenu() {
-		Set<String> options = new HashSet<String>();
-		Set<String> opDescs = new HashSet<String>();
+		LinkedHashSet<String> options = new LinkedHashSet<String>();
+		LinkedHashSet<String> opDescs = new LinkedHashSet<String>();
 		options.add("Enter String");
 		opDescs.add("Enter a string and display it in the console");
 		
