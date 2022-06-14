@@ -1,7 +1,6 @@
 package com.menu.binaryInt;
 
 import java.util.LinkedHashSet;
-import java.util.Set;
 
 import com.binaryTree.Integer.NodeDao;
 import com.menu.core.MenuFactory;
@@ -54,8 +53,8 @@ public class BinaryMenuInteger {
 	 * Main menu
 	 */
 	public void mainMenu() {
-		Set<String> options = new LinkedHashSet<String>();
-		Set<String> opDescs = new LinkedHashSet<String>();
+		LinkedHashSet<String> options = new LinkedHashSet<String>();
+		LinkedHashSet<String> opDescs = new LinkedHashSet<String>();
 		options.add("FIND");
 		opDescs.add("Find a value in the tree");
 		

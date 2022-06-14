@@ -14,5 +14,4 @@ public class IntegerNode {
 		this.rightValue = null;
 	}
 	
-	
 }

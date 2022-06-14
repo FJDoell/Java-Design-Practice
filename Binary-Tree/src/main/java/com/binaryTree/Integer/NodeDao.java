@@ -15,40 +15,39 @@ public class NodeDao {
 		this.helper = new NodeHelper();
 	}
 	
+	// Make sure root isn't null
+	private void checkRoot() {
+		if(this.root.getRoot() == null) {
+			this.root = new IntegerRoot(new IntegerNode(0));
+		}
+	}
+	
 	// FIND
 	public IntegerNode findNode(int value) {
+		checkRoot();
 		IntegerNode searchTerm = new IntegerNode(value);
 		IntegerNode searching = root.getRoot();
-		System.out.println("search term: " + searchTerm);
-		System.out.println("searching start: " + searching);
-		
-		while(searching != null) {
-			searching = helper.findNode(searching, searchTerm);
-			if(searching == null)
-				break;
-			if(searching.getValue() == value)
-				return searching;
-		}
+//		System.out.println("search term: " + searchTerm);
+//		System.out.println("searching start: " + searching);
+		searching = helper.findNode(searching, searchTerm);
 		return searching;
 	}
 	
 	// ADD
 	public boolean addNode(int value) {
+		checkRoot();
 		IntegerNode newNode = new IntegerNode(value);
 		IntegerNode addingTo = root.getRoot();
-		while(addingTo != null) {
-			addingTo = helper.addNode(addingTo, newNode);
-		}
+		addingTo = helper.addNode(addingTo, newNode);
 		return true;
 	}
 	
 	// REMOVE
 	public boolean removeNode(int value) {
+		checkRoot();
 		IntegerNode removeNode = new IntegerNode(value);
-		IntegerNode removingFrom = root.getRoot();
-		while(removingFrom != null) {
-			removingFrom = helper.removeNode(removingFrom, removeNode);
-		}
+		root.setRoot(helper.removeNode(root.getRoot(), removeNode));
+		System.out.println(root.getRoot());
 		return true;
 	}
 	
